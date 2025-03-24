@@ -21,6 +21,17 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+  let dubaiElement = document.querySelector("#dubai");
+  if (dubaiElement) {
+    let dubaiDateElement = dubaiElement.querySelector(".date");
+    let dubaiTimeElement = dubaiElement.querySelector(".time");
+    let dubaiTime = moment().tz("Asia/Dubai");
+
+    dubaiDateElement.innerHTML = dubaiTime.format("MMMM Do yyyy");
+    dubaiTimeElement.innerHTML = dubaiTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
@@ -32,6 +43,7 @@ function updateCity(event) {
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let citySelectElement = document.querySelector("#citySelect");
   citySelectElement.innerHTML = `
+  
    <div class="city">
           <div>
             <h2>${cityName}</h2>
